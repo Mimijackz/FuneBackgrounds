@@ -1,0 +1,32 @@
+<head>
+  <link rel="icon" type="image/png" href="kaj.png">
+</head>
+<div id="container" onclick="requestFullScreen(document.body);"> </div>
+<style>
+  #container {
+    background-image: url("kaj.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+  }
+  body {
+    background-color: #000000;
+  }
+</style>
+<script>
+  function requestFullScreen(element) {
+    // Supports most browsers and their versions.
+    var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+    if (requestMethod) { // Native full screen.
+        requestMethod.call(element);
+    } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+        var wscript = new ActiveXObject("WScript.Shell");
+        if (wscript !== null) {
+            wscript.SendKeys("{F11}");
+        }
+    }
+}
+</script>

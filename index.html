@@ -1,4 +1,4 @@
-<div id="container"> </div>
+<div id="container" onclick="requestFullScreen(document.body);"> </div>
 <style>
   #container {
     background-image: url("banana.gif");
@@ -26,9 +26,4 @@
         }
     }
 }
-
-setTimeout(function(){
- 	var elem = document.body; // Make the body go full screen.
-  requestFullScreen(elem);
-}, 500);
 </script>
